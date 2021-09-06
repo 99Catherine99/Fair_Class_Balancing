@@ -96,7 +96,7 @@ class fairBalance:
         ratio=len(max_X)-len(min_X)
         
         ##get the knn for minority class
-        nbrs = NearestNeighbors(n_neighbors=self.knn, algorithm='auto').fit(dfi[self.features])
+        nbrs = NearestNeighbors(n_neighbors=min(self.knn, len(dfi)), algorithm='auto').fit(dfi[self.features])
         dfs=[]
         for j in range(len(min_X)):
             dfj=min_X.iloc[j]
